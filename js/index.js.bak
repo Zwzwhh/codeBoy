@@ -1,0 +1,117 @@
+//加载楼层1
+(()=>{
+	ajax({
+		type:"get",
+		url:"data/index/getFloor1.php",
+		dataType:"json"
+	}).then(resData=>{
+		var html="";
+		for(var i=0;i<resData.length;i++){
+			var p=resData[i];
+			html+=
+			i<2?`<div>
+				<div class="desc">
+					<p class="name">${p.title}</p>
+					<p class="details">${p.details}</p>
+					<p class="price">¥${p.price}</p>
+					<a href="${p.href}" class="view">查看详情</a>
+				</div>
+				<img src="${p.pic}">
+      </div>`:
+			i==2?`<div>
+				<div class="desc">
+					<p class="name">${p.title}</p>
+					<p class="price">¥${p.price}</p>
+					<a href="${p.href}" class="view">查看详情</a>
+				</div>
+				<img src="${p.pic}">
+      </div>`:
+			`<div class="product">
+				<img src="${p.pic}">
+				<p class="name">${p.title}</p>
+				<p class="price">¥${p.price}</p>
+				<a href="${p.href}">查看详情</a>
+			</div>`;
+		}
+		document.querySelector("#f1 .floor-content")
+						.innerHTML=html;
+	})
+})();
+//加载楼层2
+(()=>{
+	ajax({
+		type:"get",
+		url:"data/index/getFloor2.php",
+		dataType:"json"
+	}).then(resData=>{
+		var html="";
+		for(var i=0;i<resData.length;i++){
+			var p=resData[i];
+			html+=
+			i<2?`<div>
+				<div class="desc">
+					<p class="name">${p.title}</p>
+					<p class="details">${p.details}</p>
+					<p class="price">¥${p.price}</p>
+					<a href="${p.href}" class="view">查看详情</a>
+				</div>
+				<img src="${p.pic}">
+      </div>`:
+			i==2?`<div>
+				<div class="desc">
+					<p class="name">${p.title}</p>
+					<p class="price">¥${p.price}</p>
+					<a href="${p.href}" class="view">查看详情</a>
+				</div>
+				<img src="${p.pic}">
+      </div>`:
+			`<div class="product">
+				<img src="${p.pic}">
+				<p class="name">${p.title}</p>
+				<p class="price">¥${p.price}</p>
+				<a href="${p.href}">查看详情</a>
+			</div>`;
+		}
+		document.querySelector("#f2 .floor-content")
+						.innerHTML=html;
+	})
+})();
+//加载楼层3
+(()=>{
+	ajax({
+		type:"get",
+		url:"data/index/getFloor3.php",
+		dataType:"json"
+	}).then(resData=>{
+		var html="";
+		for(var i=0;i<resData.length;i++){
+			var p=resData[i];
+			html+=
+			i<2?`<div>
+				<div class="desc">
+					<p class="name">${p.title}</p>
+					<p class="details">${p.details}</p>
+					<p class="price">¥${p.price}</p>
+					<a href="${p.href}" class="view">查看详情</a>
+				</div>
+				<img src="${p.pic}">
+      </div>`:
+			i==2?`<div>
+				<div class="desc">
+					<p class="name">${p.title}</p>
+					<p class="price">¥${p.price}</p>
+					<a href="${p.href}" class="view">查看详情</a>
+				</div>
+				<img src="${p.pic}">
+      </div>`:
+			`<div class="product">
+				<img src="${p.pic}">
+				<p class="name">${p.title}</p>
+				<p class="price">¥${p.price}</p>
+				<a href="${p.href}">查看详情</a>
+			</div>`;
+		}
+		document.querySelector("#f3 .floor-content")
+						.innerHTML=html;
+	})
+})()

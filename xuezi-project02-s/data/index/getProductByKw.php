@@ -1,0 +1,62 @@
+<?php
+header("Contenr-Typt:application/json");
+require_once("../init.php");
+@$kw=$_REQUEST["kw"];
+$sql="select * ,(select md from xz_laptop_pic where laptop_id=lid limit 1) as md from xz_laptop";
+if($kw){
+	$kws=explode("",$kw);
+	for($i=0;$i<count($kws);$i++){
+		$kws[$i]="title like '%$kws[i]%'";
+	}
+	$where=implode(" and ",$kws);
+	$sql.="where $where";
+}
+$result=mysqli_query($conn,$sql);
+echo json_encode(mysqli_fetch_all($result,1));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

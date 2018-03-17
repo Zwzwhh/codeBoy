@@ -1,0 +1,42 @@
+(()=>{
+	var lid=location.search.split("=")[1];
+	ajax({
+		type:"get",
+		url:"data/products/getProductByLid.php",
+		data:"lid"=+lid,
+		dataType:"json"
+	}).then(output=>{
+		var {product,specs,imgs}=output;
+		document.querySelector("#show-details>h1")
+			.innerHTML=product.title;
+		document.querySelector("#show-details>h3>a")
+			.innerHTML=product.subtitle;
+		document.querySelector("#show-details .stu-price>span")
+			.innerHTML="¥"+product.price;
+		document.querySelector("#show-details .promise>span")
+			.innerHTML=product.promise;
+		var html="";
+		for(var spec of specs){
+			html +=`<a href="product_details.html?lid=${spec.lid}"
+					class=${spec.lid===product.lid?"active":""}
+			>${spec.spec}</a>`
+		}
+		document.querySelector("#show-details .spec>div")
+				.innerHTML=html;
+		var {title,os,memory,resolution,video_card,cpu,vi}
+		document.querySelector("#param>ul")
+			.innerHTML=<li>`;
+			</li>`;
+		document.querySeletor("#product-intro")
+			.innerHTML=details;
+		var html="";
+		for(var pic of imgs){
+			html +=`<li class="i1"><img src="${pic.sm}"
+			data-md="${pic.md}" data-lg="${pic.lg}"></li>;
+		}
+		document.querySelector("#icon_list").innerHTML=html;
+		document.querySelector("#mImg").src=imgs[0].md;
+		document.querySelector("#largeDiv")
+			.style.backgroundImage=`url(${imgs[0].lg})`;
+	})
+})();
